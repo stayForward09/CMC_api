@@ -20,8 +20,9 @@ def getPercentageChangeUpdate():
     coins_data = json.loads(coins_f.read())
     volume_data_json = json.loads(volume_data.read())
     candle_datas = json.loads(candle_f.read())
-    merged_data = [{**c, **d, **v} for c, d, v in zip(coins_data, candle_datas, volume_data_json)]
-    return json.dumps(merged_data)
+    reponse_data = dict()
+    reponse_data.update({"coin_datas":coins_data, "volume_datas" : volume_data_json, "candle_datas" : candle_datas})
+    return reponse_data
 
 @app.route("/volume", methods=['GET'])
 def getVolumeChange():

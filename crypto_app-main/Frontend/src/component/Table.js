@@ -10,12 +10,24 @@ const Table = () => {
     "p4h" : 0,
   })
 
+
   const fetchCoinsData = () => {
     fetch("http://127.0.0.1:5000/data")
       .then((response) => response.json())
       .then((data) => {
-        setCoinsData(data);
-        console.log("data===>", data)
+        const mergedArray = [];
+        const allItems = [...data.candle_datas, ...data.volume_datas, ...data.coin_datas];
+
+        allItems.forEach(item => {
+          const existingItemIndex = mergedArray.findIndex(i => i.id === item.id);
+          if (existingItemIndex !== -1) {
+            Object.assign(mergedArray[existingItemIndex], item);
+          } else {
+            mergedArray.push(item);
+          }
+        });
+        setCoinsData(mergedArray)
+        console.log("data===>", coinsData)
       })
       .catch((err) => {
         console.log(err, "3");
