@@ -65,22 +65,21 @@ class CoinMarketCapSocket:
                             record_time = datetime.datetime.fromisoformat(record["time"])
                             open_price = record["price"]
                             close_price = coin["volatility_data"]["p"]
-                            
                             if record_time > past_three_min:
-                                coin["volatility_data"]["p3min"] = ((open_price - close_price)/open_price)*100
+                                coin["volatility_data"]["p3min"] = ((close_price - open_price)/open_price)*100
                                 print("3MIN CHANGE:",coin["volatility_data"]["p3min"])
 
                             if record_time > past_five_min:
-                                coin["volatility_data"]["p5m"] = ((open_price - close_price)/open_price)*100
-                                # print("5MIN CHANGE:",coin["volatility_data"]["p5m"])
+                                coin["volatility_data"]["p5m"] = ((close_price - open_price)/open_price)*100
+                                print("5MIN CHANGE:",coin["volatility_data"]["p5m"])
 
                             if record_time > past_fifteen_min:
-                                coin["volatility_data"]["p15m"] = ((open_price - close_price)/open_price)*100
-                                # print("15MIN CHANGE:",coin["volatility_data"]["p15m"])
+                                coin["volatility_data"]["p15m"] = ((close_price - open_price)/open_price)*100
+                                print("15MIN CHANGE:",coin["volatility_data"]["p15m"])
 
                             if record_time > past_four_hour:
-                                coin["volatility_data"]["p4h"] = ((open_price - close_price)/open_price)*100
-                                # print("4HOUR CHANGE:", coin["volatility_data"]["p4h"])
+                                coin["volatility_data"]["p4h"] = ((close_price - open_price)/open_price)*100
+                                print("4HOUR CHANGE:", coin["volatility_data"]["p4h"])
                     else:
                         print("")
                     
@@ -130,7 +129,7 @@ class CoinMarketCapSocket:
                             # print("NEW TIME:",record_time)
                         
                         record_time = datetime.datetime.strftime(record_time,"%Y-%m-%d %H:%M")
-                        
+                        coin['record_time'] = record_time
                         self._update_volatilty_data(coin)
                         self._record_coins_history(record_time, coin)
 

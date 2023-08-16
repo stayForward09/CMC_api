@@ -15,6 +15,7 @@ const Table = () => {
       .then((response) => response.json())
       .then((data) => {
         setCoinsData(data);
+        console.log("data===>", data)
       })
       .catch((err) => {
         console.log(err, "3");
@@ -71,6 +72,7 @@ const Table = () => {
                             <th colSpan={5} style={{width:"30%"}}>
                                 %change BTC
                             </th>
+                            <th rowSpan={2} style={{width:"5%", verticalAlign:"bottom"}}>Record Time</th>
                         </tr>
                         <tr>
                             <th>3’</th>
@@ -98,11 +100,12 @@ const Table = () => {
                           <td>{coin?.candle_count_7?.toFixed(2)}</td>
                           <td>{coin?.candle_count_14?.toFixed(2)}</td>
                           <td>{coin?.volatility_data?.mc?.toFixed(2)}</td>
-                          <td>{coin?.volatility_data?.p3min && (btcData.p3min - coin.volatility_data.p3min)}</td>
-                          <td>{coin?.volatility_data?.p5m && (btcData.p5m - coin.volatility_data.p5m)}</td>
-                          <td>{coin?.volatility_data?.p15m && (btcData.p15m - coin.volatility_data.p15m)}</td>
-                          <td>{coin?.volatility_data?.p1h && (btcData.p1h - coin.volatility_data.p1h)}</td>
-                          <td>{coin?.volatility_data?.p4h && (btcData.p4h - coin.volatility_data.p4h)}</td>
+                          <td>{coin?.volatility_data?.p3min && (btcData.p3min - coin.volatility_data.p3min).toFixed(2)}</td>
+                          <td>{coin?.volatility_data?.p5m && (btcData.p5m - coin.volatility_data.p5m).toFixed(2)}</td>
+                          <td>{coin?.volatility_data?.p15m && (btcData.p15m - coin.volatility_data.p15m).toFixed(2)}</td>
+                          <td>{coin?.volatility_data?.p1h && (btcData.p1h - coin.volatility_data.p1h).toFixed(2)}</td>
+                          <td>{coin?.volatility_data?.p4h && (btcData.p4h - coin.volatility_data.p4h).toFixed(2)}</td>
+                          <td>{coin?.record_time?.slice(11, 17)}</td>
                         </tr>
                       ))}
                     </tbody>
