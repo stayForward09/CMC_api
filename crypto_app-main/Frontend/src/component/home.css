@@ -1,0 +1,106 @@
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(14, 13, 13);
+    display: flex;
+    justify-content: end;
+}
+
+.header-items {
+    margin-right: 20px;
+    color: white;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom:auto;
+}
+.setting-table-header {
+    color: black;
+    font-weight: 700;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.setting-body {
+    margin-top: 40px;
+}
+
+.setting-table {
+    display: flex;
+    justify-content: center;
+    margin: 20px 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border: 1px solid #ddd;
+    /* border-radius: 5px; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+thead {
+    background-color: #3fabda;
+    color: #fff;
+}
+
+th{
+    background-color: #3fabda;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+td {
+    border: solid 1px black;
+}
+
+/* th {
+background-color: #f2f2f2;
+} */
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+
+td:first-child {
+text-align: left;
+}
+
+
+.record-header {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(79, 48, 255);
+    display: flex;
+    justify-content: start;
+}
+
+.record-header-items {
+    margin-left: 40px;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom:auto;
+}
+.route-bar {
+    width: 100%;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: 0px;
+    color: rgb(2, 2, 225);
+}
+
+button {
+    background-color: rgb(79, 48, 255); 
+    border: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+}
