@@ -1,0 +1,36 @@
+.container {
+  margin: 10px;
+  /* width: 1500px;
+  overflow-x: scroll; */
+}
+
+.tableContainer {
+  /* display: flex; */
+}
+
+.headContainer {
+  display: flex;
+}
+
+.changeContainer {
+  display: flex;
+  /* width: 100%; */
+  justify-content: center;
+}
+
+.t-head {
+  background-color: #3fabda;
+  color: white;
+  font-weight: bold;
+  padding: 10px 16px;
+  border: 0.5px solid #ddd;
+}
+
+.t-data {
+  padding: 10px 8px;
+  border: 1px solid #ddd;
+}
+
+.shadow {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
